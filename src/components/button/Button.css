@@ -1,0 +1,116 @@
+.btn{
+    isolation: isolate;
+    margin: 3px 5px;
+    position: relative;
+    padding:14px 32px 16px 32px;
+    overflow: hidden;
+    display: flexbox;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    transition:
+        width var(--transition-expressive-fast),
+        height var(--transition-expressive-fast),
+        background-color var(--transition-expressive-color),
+        color var(--transition-expressive-color),
+        border var(--transition-expressive-color),
+        padding var(--transition-expressive),
+        border-radius var(--transition-expressive-fast),
+        gap var(--transition-expressive);
+    font-weight: 500;
+    font-size: 16px;
+    font-family: 'Funnel Sans';
+    border-radius: 26px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.btn.size-128{
+    padding:22px 48px 24px 48px;
+    font-size: 24px;
+    border-radius: 50px;
+}.btn.size-128.active{
+    border-radius: 16px;
+    font-weight: 300;
+}
+.btn.icon{
+    padding:8px 9px 10px 11px;
+}
+.btn.label-icon{
+    padding:8px 10px 10px 26px;
+}.btn.btn.label-icon .material-symbols-rounded{
+    padding-left:8px;
+}
+.btn > span {
+  position: relative;
+  pointer-events: none;
+  z-index: 10;
+}
+.btn.active{
+    border-radius: 12px;
+    font-weight: 400;
+    .material-symbols-rounded{
+        font-variation-settings: 'wght' 300;
+    }
+}
+.btn.tonal{
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    fill: var(--md-sys-color-primary-container-dim);
+}
+.btn.tonal .ripple-container span::after{
+    background-color: var(--md-sys-color-primary);
+}
+
+.btn.filled-alt{
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    fill: var(--md-sys-color-on-primary);
+}
+.btn.filled-alt .ripple-container span::after{
+    background-color: var(--md-sys-color-on-primary-container);
+}
+
+.btn.filled{
+    background-color: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    fill: var(--md-sys-color-on-primary);
+}
+.btn.filled .ripple-container span::after{
+    background-color: var(--md-sys-color-primary-container);
+}
+
+.btn.outlined{
+    padding:14px 30px;
+    background-color: unset;
+    color: var(--md-sys-color-on-surface-variant);
+    fill: var(--md-sys-color-on-surface-variant);
+    border: 2px solid var(--md-sys-color-outline-variant);
+}
+.btn.outlined.label-icon{
+    padding:6px 8px 8px 24px;
+}
+
+.btn.outlined.icon{
+    padding:7px 8px 8px 5px;
+}
+
+.btn.outlined .ripple-container span::after{
+    background-color: var(--md-sys-color-outline-variant);
+}
+.btn.text{
+    background-color: unset;
+    color: var(--md-sys-color-primary);
+    fill: var(--md-sys-color-primary);
+}.btn.text.active{
+    border-radius: 48px !important;
+}
+.btn.text .ripple-container span::after{
+    background-color: var(--md-sys-color-primary);
+}
+
+.button-container{
+    justify-items: center;
+}
+.btn .icon-label-container{
+    padding-top: 2px;
+}

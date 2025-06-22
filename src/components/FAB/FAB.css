@@ -1,0 +1,47 @@
+.FAB{
+    height: 56px;
+    width: 56px;
+    isolation: isolate;
+    margin: 16px 16px 16px 16px;
+    position:relative;
+    padding: 0;
+    z-index: 9999;
+    overflow: hidden;
+
+    background-color: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+
+    transition:
+        width var(--transition-expressive-fast),
+        height var(--transition-expressive-fast),
+        background-color var(--transition-expressive-color),
+        color var(--transition-expressive-color),
+        border var(--transition-expressive-color),
+        padding var(--transition-expressive),
+        border-radius var(--transition-expressive-fast),
+        border  var(--transition-expressive-fast),
+        gap var(--transition-expressive);
+    font-weight: 500;
+    font-size: 16px;
+    font-family: 'Funnel Sans';
+    border-radius: 16px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.FAB .material-symbols-rounded{
+    z-index: inherit;
+    margin: 0;
+    padding: 2px 0 0 1px;
+    font-variation-settings:
+        'wght' 500;
+    transition: all 0.2s ease, font-variation-settings 0.2s ease;
+}
+.FAB > .ripple-container > span::after{
+    background-color: var(--md-sys-color-primary);
+}
+.FAB.sticky{
+    position: fixed;
+    bottom: 26px;
+    right: 26px;
+}

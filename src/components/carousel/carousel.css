@@ -1,0 +1,32 @@
+/* Carousel css */
+
+.mask-bg {
+    position: relative;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+}
+
+.mask-content-bg {
+    position: relative;
+    margin-right: 2px;
+    margin-left: 2px;
+    border-radius: 42px;
+    height: 400px;
+    margin-top: 0;
+    min-width: 42px;
+}
+.carousel {
+    left: -4%;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 115%; /* Or a specific width */
+}
+.carousel-clip {
+    border-radius: 42px;
+    position: relative;
+    overflow: hidden;
+    height: 400px;
+    width: 100%;
+}

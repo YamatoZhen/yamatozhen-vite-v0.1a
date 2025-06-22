@@ -1,0 +1,99 @@
+.FTB-container{
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: 500;
+
+    border-radius: 56px;
+    overflow: hidden;
+
+    background-color: var(--md-sys-color-surface-container-low);
+    width: 90%;
+    left: 8%;
+    height: 72px;
+    margin: 0 0px;
+    box-shadow: 0 0 0 var(--md-sys-color-shadow);
+    will-change: transform, box-shadow;
+    transition:
+        background-color var(--transition-expressive-color),
+        height var(--transition-expressive),
+        width var(--transition-expressive),
+        left var(--transition-expressive),
+        right var(--transition-expressive),
+        top var(--transition-expressive),
+        box-shadow var(--transition-expressive-color);
+}
+.tab-container{
+    font-size: 16px;
+    border-radius: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+    >.icon-label-container{
+        color: var(--md-sys-color-secondary);
+        display: flex;
+        flex-direction: row-reverse;
+        z-index: 1002;
+        >.label-name{
+            padding-top: 2px;
+        }
+    }
+    &::before{
+        content: '';
+        width: 60%;
+        height: 100%;
+        border-radius: 56px;
+        background-color: unset;
+        z-index: 1001;
+        position: absolute;
+        transition: background-color var(--transition-expressive-color),
+                    width var(--transition-expressive-slow),
+                    height  var(--transition-expressive-slow),
+                    left var(--transition-expressive-slow),
+                    transform var(--transition-expressive-slow);
+    }
+    &:hover{
+        cursor: pointer;
+        background-color: var(--md-sys-color-surface-container);
+        .material-symbols-rounded{
+            font-variation-settings: 'wght' 600;
+        }
+    }
+    transition: background-color var(--transition-expressive-color);
+}
+
+.tab-container.current-tab{
+    font-weight: 600;
+    >.icon-label-container{
+        color: var(--md-sys-color-on-surface);
+        .material-symbols-rounded{
+            font-variation-settings: 'FILL' 1;
+        }
+    }
+    &::before{
+        width: 100%;
+        background-color: var(--md-sys-color-secondary-container);
+    }
+}
+
+.FTB-container.nav-mode{
+    top: 10px;
+    width: 64%;
+    left: 21%;
+    position:fixed;
+    height: 64px;
+}
+
+.holder {
+    z-index: 200;
+    position: relative;
+    left: -9%;
+    height: 100px;
+    width: 111%;
+}

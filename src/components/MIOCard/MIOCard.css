@@ -1,0 +1,97 @@
+.mio-container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: auto;
+    min-height: 108px;
+    min-width: 174px;
+    border-radius: 26px;
+    background-color: var(--md-sys-color-surface-container-low);
+    transition: background-color var(--transition-expressive-color), border-radius var(--transition-expressive-fast);
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    &:hover{
+        cursor: pointer;
+        background-color: var(--md-sys-color-secondary-container);
+    }
+    &:active{
+        border-radius: 42px;
+    }
+}
+#mioSpan{
+    color: var(--md-sys-color-on-surface);
+}
+.mio-span-bg {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mio-span-bg .mio-path{
+    position: absolute;
+    top: 0;
+    left: 0;
+    fill: var(--md-sys-color-surface-container-lowest);
+    transition: fill var(--transition-expressive-color);
+    scale: 1.3;
+}
+.mio-container:hover{
+    .material-symbols-rounded{
+        color: var(--md-sys-color-surface);
+    }
+    .mio-span-bg .mio-path{
+        fill: var(--md-sys-color-on-primary-container);
+    }
+    #mioSpan{
+        color: var(--md-sys-color-surface-container-lowest);
+    }
+    
+}
+
+.text-container{
+    position: relative;
+    padding: 22px 0 26px 26px;
+    margin-right: 72px;
+    text-align: left;
+    > h1{
+        color: var(--md-sys-color-on-surface);
+        font-weight: 500;
+        font-size: 24px;
+        margin-bottom: 8px ;
+    }
+    > p{
+        color: var(--md-sys-color-on-surface-variant);
+        font-weight: 400;
+        font-size: 16px;
+    }
+}
+.noSpan{
+    display: none;
+    visibility: none;
+    pointer-events: none;
+}
+
+.left, .right{
+    color: var(--md-sys-color-secondary);
+    width: fit-content;
+    font-weight: 500;
+    font-size: 16px;
+    padding-bottom: 6px;
+    .material-symbols-rounded{
+        padding: 0;
+        margin: 0;
+    }
+    
+}
+.mio-container:hover #lr{
+    color: var(--md-sys-color-secondary);
+}
+.left{
+    flex-direction: row-reverse;
+}
