@@ -51,7 +51,7 @@ function HomePage() {
             { href: '#', label: 'item' },
             { href: '#', label: 'item' }
           ]} label={'Drop?'} id={''} type={'filled'} />
-        <PFP className='pfp' size='128px' src='src/assets/pfp_yamatozhen.webp' />
+        <PFP className='pfp' size='128px' src="https://www.artstation.com/yamato_zhen" />
         <GridContainer setColumns={2} setRows={1}>
           <MIOCard
             nav='left'

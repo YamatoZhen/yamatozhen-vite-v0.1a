@@ -25,7 +25,7 @@ interface RailTabProps {
     tabItems?: { label: string; onClick?: () => void; className?: string }[]; // <-- Add className here
 }
 
-function RailTab({ label, id, iconName, onClick, className, tabMenu, tabItems }: RailTabProps) {
+function RailTab({ label, id, iconName, onClick, className }: RailTabProps) {
     return (
         <div className={`rail-tab ${className}`}>
             <Icon iconName={iconName} id={id} onClick={onClick} label={label} />

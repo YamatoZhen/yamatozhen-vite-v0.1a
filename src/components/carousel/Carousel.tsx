@@ -22,7 +22,7 @@ function Carousel(props: { urls?: string[], supportSnap?: boolean }) {
 
     const [scroll, setScroll] = useState(minScroll);
     const [heroElement, setHeroElement] = useState(0);
-    const [currentSnapPosition, setCurrentSnapPosition] = useState(minScroll);
+    const [, setCurrentSnapPosition] = useState(minScroll);
     const [imagesLoaded, setImagesLoaded] = useState(0);
     const [wData, setWData] = useState(urls.map(() => 0));
     const [mouseDown, setMouseDown] = useState(false);
@@ -30,6 +30,7 @@ function Carousel(props: { urls?: string[], supportSnap?: boolean }) {
     const [didScroll, setDidScroll] = useState(false);
 
     const startX = useRef(0);
+    // let currentSnapPosition = 0; // Removed duplicate declaration
 
     // Helper to update scroll, clamping to min/max
     const updateScroll = (s: number) => {
@@ -76,7 +77,7 @@ function Carousel(props: { urls?: string[], supportSnap?: boolean }) {
     };
 
     // Animate scroll for arrows/keyboard
-    const snapToPosition = (deltaX: number, force?: boolean) => {
+    const snapToPosition = (deltaX: number, _p0: boolean) => {
         if (deltaX === 0) return;
         const duration = 400; // ms
         const start = performance.now();

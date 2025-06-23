@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import React from "react";
 import { useRef } from "react";
 
-export default function AnimateChildren({ children }) {
+export default function AnimateChildren({ children }: React.PropsWithChildren<{}>) {
   return (
     <>
       {React.Children.map(children, (child, i) => {
