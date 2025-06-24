@@ -37,6 +37,12 @@ function HomePage() {
           { iconName: 'design_services', label: 'Guidelines' },
           { iconName: 'accessibility_new', label: 'Accessibility' }
         ]} />
+        <p>Hi, I'm Aedan – a UI/UX designer, digital artist, and frontend engineer based in [your city, if you want local SEO]. I create seamless user interfaces, striking visual art, and responsive web apps that blend form and function.</p>
+        <p>Whether you’re a startup looking for a complete brand and product experience or an agency seeking collaboration with a creative technologist, I bring both design flair and coding expertise to the table.</p>
+        <p>I also follow trends in web animation, creative coding, WebGL design, 3D interfaces, AI-assisted design, and accessibility-first web development.</p>
+
+        <img src="hero-image.png" alt="UI/UX design, frontend code, digital art – Aedan's portfolio hero" />
+
         <Switch id={'1233409'} />
         <Button id={''} type={'filled'}>Get started</Button>
         <Button id={''} type={'tonal'}>Get started</Button>

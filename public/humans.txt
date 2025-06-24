@@ -1,0 +1,7 @@
+/* TEAM */
+Developer: Aedan
+Design: Aedan
+Site: https://yourdomain.com
+
+/* TECH STACK */
+Built with: Vite + React + TypeScript + Good Vibes
