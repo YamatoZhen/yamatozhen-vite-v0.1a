@@ -29,7 +29,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: var(--md-sys-color-surface-container-lowest, #230909); /* fallback */
+    background-color: var(--md-sys-color-surface-container-low, #230909); /* fallback */
   }
 }
 

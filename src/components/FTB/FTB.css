@@ -5,13 +5,13 @@
     align-items: center;
     justify-content: space-around;
     font-weight: 500;
-
+    
     border-radius: 56px;
     overflow: hidden;
 
     background-color: var(--md-sys-color-surface-container-low);
-    width: 90%;
-    left: 8%;
+    width: calc(100% - 32px - 84px - 24px);
+    left: calc(32px + 84px);
     height: 72px;
     margin: 0 0px;
     box-shadow: 0 0 0 var(--md-sys-color-shadow);
@@ -53,10 +53,10 @@
         z-index: 1001;
         position: absolute;
         transition: background-color var(--transition-expressive-color),
-                    width var(--transition-expressive-slow),
-                    height  var(--transition-expressive-slow),
-                    left var(--transition-expressive-slow),
-                    transform var(--transition-expressive-slow);
+                    width var(--transition-expressive-color),
+                    height  var(--transition-expressive-color),
+                    left var(--transition-expressive-color),
+                    transform var(--transition-expressive-color);
     }
     &:hover{
         cursor: pointer;
@@ -83,9 +83,9 @@
 }
 
 .FTB-container.nav-mode{
+    width: calc(74% - 32px - 84px);
+    left: calc(13% + 32px + 84px - 24px);
     top: 10px;
-    width: 64%;
-    left: 21%;
     position:fixed;
     height: 64px;
 }

@@ -29,61 +29,66 @@ function HomePage() {
   return (<>
     <ReviewForm />
     <section className='home-section'>
+      <Carousel urls={urls} supportSnap={false} />
+      <FTB id={'tbshm'} tabs={[
+        { iconName: 'info', label: 'Overview' },
+        { iconName: 'art_track', label: 'Specs' },
+        { iconName: 'design_services', label: 'Guidelines' },
+        { iconName: 'accessibility_new', label: 'Accessibility' }
+      ]} />
+
       <AnimateChildren>
-        <Carousel urls={urls} supportSnap={false} />
-        <FTB id={'tbshm'} tabs={[
-          { iconName: 'info', label: 'Overview' },
-          { iconName: 'art_track', label: 'Specs' },
-          { iconName: 'design_services', label: 'Guidelines' },
-          { iconName: 'accessibility_new', label: 'Accessibility' }
-        ]} />
-        <p>Hi, I'm Aedan – a UI/UX designer, digital artist, and frontend engineer based in [your city, if you want local SEO]. I create seamless user interfaces, striking visual art, and responsive web apps that blend form and function.</p>
-        <p>Whether you’re a startup looking for a complete brand and product experience or an agency seeking collaboration with a creative technologist, I bring both design flair and coding expertise to the table.</p>
-        <p>I also follow trends in web animation, creative coding, WebGL design, 3D interfaces, AI-assisted design, and accessibility-first web development.</p>
-
-        <img src="hero-image.png" alt="UI/UX design, frontend code, digital art – Aedan's portfolio hero" />
-
-        <Switch id={'1233409'} />
-        <Button id={''} type={'filled'}>Get started</Button>
-        <Button id={''} type={'tonal'}>Get started</Button>
-        <Button id={''} type={'outlined'}>Get started</Button>
-        <Button id={''} type={'text'}>Get started</Button>
-        <Button id={''} type={'filled-alt'}>Get started</Button>
-        <Sinewave />
-        <Dropdown
-          items={[
-            { href: '#', label: 'item' },
-            { href: '#', label: 'item' },
-            { href: '#', label: 'item' },
-            { href: '#', label: 'item' }
-          ]} label={'Drop?'} id={''} type={'filled'} />
-        <PFP className='pfp' size='128px' src="https://www.artstation.com/yamato_zhen" />
-        <GridContainer setColumns={2} setRows={1}>
-          <MIOCard
-            nav='left'
-            title='Blog: Using motion physics'
-            onClick={undefined}
-            iconName='workspace_premium' />
-          <MIOCard
-            nav='right'
-            title='Blog: Using motion physics'
-            onClick={undefined}
-            iconName='code' />
-        </GridContainer>
+        <div className="wrap-16">
         <MIOCard
-          title='Blog: Using motion physics'
-          text='News, tutorials, and inspiration from the Material team'
-          onClick={undefined}
-          iconName='code' />
-        <GridContainer setColumns={2} setRows={1}>
-          <Thumbnail src="src/assets/aa88421a029b7b834038eea81d3a060a.jpg" alt="1" />
-          <Thumbnail src="" alt="" />
-        </GridContainer>
-        <GridContainer setColumns={3} setRows={1}>
-          <Thumbnail src="" alt="" />
-          <Thumbnail src="" alt="" />
-          <Thumbnail src="" alt="" />
-        </GridContainer>
+              title='Blog: Using motion physics'
+              text='News, tutorials, and inspiration from the Material team'
+              onClick={undefined}
+              iconName='code' />
+          <p>Hi, I'm Aedan – a UI/UX designer, digital artist, and frontend engineer based in [your city, if you want local SEO]. I create seamless user interfaces, striking visual art, and responsive web apps that blend form and function.</p>
+          <p>Whether you’re a startup looking for a complete brand and product experience or an agency seeking collaboration with a creative technologist, I bring both design flair and coding expertise to the table.</p>
+          <p>I also follow trends in web animation, creative coding, WebGL design, 3D interfaces, AI-assisted design, and accessibility-first web development.</p>
+
+          <img src="hero-image.png" alt="UI/UX design, frontend code, digital art – Aedan's portfolio hero" />
+
+          <Switch id={'1233409'} />
+          <Button id={''} type={'filled'}>Get started</Button>
+          <Button id={''} type={'tonal'}>Get started</Button>
+          <Button id={''} type={'outlined'}>Get started</Button>
+          <Button id={''} type={'text'}>Get started</Button>
+          <Button id={''} type={'filled-alt'}>Get started</Button>
+          <Sinewave />
+          <Dropdown
+            items={[
+              { href: '#', label: 'item' },
+              { href: '#', label: 'item' },
+              { href: '#', label: 'item' },
+              { href: '#', label: 'item' }
+            ]} label={'Drop?'} id={''} type={'filled'} />
+          <PFP className='pfp' size='128px' src="https://www.artstation.com/yamato_zhen" />
+            <GridContainer setColumns={1} setRows={2}>
+            <Thumbnail src="src/assets/aa88421a029b7b834038eea81d3a060a.jpg" alt="1" />
+            <Thumbnail src="" alt="" />
+          </GridContainer>
+          <GridContainer setColumns={3} setRows={1}>
+            <Thumbnail src="" alt="" />
+            <Thumbnail src="" alt="" />
+            <Thumbnail src="" alt="" />
+          </GridContainer>
+        </div>
+        <div className="wrap-4">
+          <GridContainer setColumns={2} setRows={1}>
+              <MIOCard
+                nav='left'
+                title='Blog: Using motion physics'
+                onClick={undefined}
+                iconName='workspace_premium' />
+              <MIOCard
+                nav='right'
+                title='Blog: Using motion physics'
+                onClick={undefined}
+                iconName='code' />
+            </GridContainer>
+        </div>
         <ReviewList />
       </AnimateChildren>
     </section>

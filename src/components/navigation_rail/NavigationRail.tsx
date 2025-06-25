@@ -61,7 +61,8 @@ export default function NavgationRail({ children }: NavigationRailProps) {
     const tabExpandElements: React.ReactNode[] = [];
 
     return (
-        <>
+        <>  
+            <div className="width-corrector"></div>
             <div className='sidebar'>
                 <div className="sidebar-content">
                     <ul className="nav-menu">

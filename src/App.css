@@ -9,12 +9,11 @@
 }
 
 #root {
-  max-width: 100dvh;
-  max-height: 100dvh;
+  width: 100%;
+  height: 0;
   margin: 0;
-  padding: 2;
   text-align: center;
-  display: inline-block;
+  display:flex;
   font-family: "Funnel Sans", sans-serif !important;
   line-height: 1.5;
   font-size: 14px;
@@ -22,16 +21,14 @@
   font-style: normal;
   font-optical-sizing: auto;
   column-rule: var(--md-sys-color-text);
-
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: red;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background-color: var(--md-sys-color-surface-container-low);
-  transition: all var(--transition-expressive-fast), background-color var(--transition-expressive-color);
 }
 
 .elevated {
@@ -43,12 +40,11 @@ body {
 @media (prefers-reduced-motion: no-preference) {}
 
 section {
-  position: absolute;
+  position: relative;
   height: fit-content;
-  width: 96.3%;
+  width: 100%;
   transition: all var(--transition-expressive-slow), background-color var(--transition-expressive-color);
-  border-radius: 42px;
-  margin-top: 12px;
+  border-radius: 26px;
 }
 
 section+.carousel-clip {
@@ -62,7 +58,7 @@ section+.carousel-clip {
 
 .home-section {
   background-color: var(--md-sys-color-surface-container-lowest);
-  padding: 32px;
+  padding: 16px;
 }
 
 .app-section {
@@ -114,12 +110,11 @@ body.app {
 section.content-section {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: relative;
   height: max-content;
-  width: 93.7%;
-  right: 0;
+  width: calc(100% - 88px);
   top: 0;
-  padding: 0 26px;
+  padding: 16px 16px 16px 0;
 }
 
 input {
@@ -162,4 +157,13 @@ textarea {
   }
 
   transition: all var(--transition-expressive-color);
+}
+.wrap-4{
+  margin:0 4%;
+}
+.wrap-8{
+  margin:0 8%;
+}
+.wrap-16{
+  margin:0 16%;
 }
