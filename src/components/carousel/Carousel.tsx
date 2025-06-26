@@ -191,8 +191,7 @@ function Carousel(props: { urls?: string[], supportSnap?: boolean }) {
                 }}>
                 <Button
                     onClick={() => setDirection(-1)}
-                    type="filled elevated icon"
-                    activeState="inactive"
+                    type="filled icon elevated"
                     id={"scrollLeft"}
                 >
                     <Icon iconName={"keyboard_arrow_left"} label={""} />
@@ -211,7 +210,6 @@ function Carousel(props: { urls?: string[], supportSnap?: boolean }) {
                     <Button
                         onClick={() => setDirection(1)}
                         type="filled elevated icon"
-                        activeState="inactive"
                         id={"scrollRight"}
                     >
                         <Icon iconName={"keyboard_arrow_right"} label={""} />

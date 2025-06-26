@@ -22,12 +22,15 @@ export default function ReviewList() {
             setLoading(true);
             setError(null);
             try {
-                const res = await fetch('http://localhost:3001/api/reviews');
+                const res = await fetch('/api/reviews');
                 if (!res.ok) throw new Error('Failed to fetch Reviews');
                 const data: Review[] = await res.json();
+                data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
                 setReviews(data);
+
             } catch (err: any) {
-                setError(err.message || 'Unknown Error');
+                const message = err?.message || (await err?.response?.json()?.message) || 'Unknown Error';
+                setError(message);
             } finally {
                 setLoading(false);
             }

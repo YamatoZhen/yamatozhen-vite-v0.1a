@@ -26,7 +26,7 @@ export default function ReviewForm() {
         };
 
         try {
-            const response = await fetch('http://localhost:3001/api/reviews', {
+            const response = await fetch('/api/reviews', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -80,7 +80,7 @@ export default function ReviewForm() {
                         left: "-5dvw",
                         top: "-5dvh",
                     }}
-                    initial={{ opacity: 0, scale: 0.9 }}
+                    initial={{ opacity: 0, scale: 0.9, }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.5, ease: [0.55, 0.75, 0.15, 1.87] }}

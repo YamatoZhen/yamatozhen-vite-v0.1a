@@ -4,7 +4,7 @@ import './Thumbnail.css';
 interface GridContainerProps {
   children?: React.ReactNode;
   setColumns: number;
-  setRows?: number;
+  setRows?: string | number;
   className?: string;
 }
 
@@ -15,9 +15,9 @@ function GridContainer({ className, children, setColumns, setRows }: GridContain
     <div
       className={`GridContainer ${className}`}
       style={{
-        margin: "16px 0 16px 0",
+        margin: "8px 0 8px 0",
         display: "grid",
-        gap: "16px",
+        gap: "8px",
         gridTemplateColumns: `repeat(${setColumns}, 1fr)`,
         gridTemplateRows: `repeat(${setRows}, 1fr)`,
       }}
@@ -34,22 +34,25 @@ function GridContainer({ className, children, setColumns, setRows }: GridContain
 export { GridContainer };
 
 interface ThumbnailProps {
-  src: string;
-  alt: string;
+  src: string | null;
+  alt?: string;
+  p?: string;
+  h?: string;
 }
 
-export default function Thumbnail({ src, alt }: ThumbnailProps) {
+export default function Thumbnail({ src, alt, p, h }: ThumbnailProps) {
   return (
     <>
       <div className="thumbnail">
         <div className="thumbnail-container">
-          <img src={src} alt={alt} />
+          {typeof src === 'string' && src.trim() !== '' && (
+            <img src={src} alt={alt || ''} />
+          )}
         </div>
         <div className="text-container">
-          <h3>Updated: Figma M3 Design Kit</h3>
+          <h3>{h}</h3>
           <p>
-          A new way to organize related buttons—with shape-shifting buttons that bump and react to each other
-
+            {p}
           </p>
         </div>
       </div>

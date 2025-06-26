@@ -5,12 +5,12 @@ import './components/navigation_rail/NavigationRail.css';
 import Loader from './components/loader/Loader';
 import { useNavigate, Route, Routes } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import HomePage from './pages/HomePage';
-import ProjectsPage from './pages/ProjectsPage';
-import StorePage from './pages/StorePage';
-import LinksPage from './pages/LinksPage';
-import PortfolioPage from './pages/PortfolioPage';
-import Search from './pages/Search';
+import HomePage from './links/HomePage';
+import ProjectsPage from './links/ProjectsPage';
+import StorePage from './links/StorePage';
+import LinksPage from './links/LinksPage';
+import PortfolioPage from './links/PortfolioPage';
+import Search from './links/Search';
 import './colors.css'
 
 function App() {

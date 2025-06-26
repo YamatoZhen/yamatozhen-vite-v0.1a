@@ -13,10 +13,19 @@ export default function ReviewsGraph() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3001/api/reviews")
-            .then(res => res.json())
-            .then(data => setReviews(data))
-            .finally(() => setLoading(false));
+        const fetchReviews = () => {
+            fetch("/api/reviews")
+                .then(res => res.json())
+                .then(data => setReviews(data))
+                .catch(() => setReviews([]))
+                .finally(() => setLoading(false));
+        };
+    
+        fetchReviews();
+    
+        const handler = () => fetchReviews();
+        window.addEventListener("review-submitted", handler);
+        return () => window.removeEventListener("review-submitted", handler);
     }, []);
 
     // Count reviews for each star (5 to 1)

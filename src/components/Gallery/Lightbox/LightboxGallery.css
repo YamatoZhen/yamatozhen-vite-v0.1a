@@ -1,0 +1,15 @@
+.lightbox-thumb{
+    border-radius: 12px;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.lightbox-overlay{
+    background-color: rgba(50, 50, 50, 0.5);
+}
+.lightbox-expanded{
+    position: fixed;
+    z-index: 100001;
+    border-radius: 26px;
+}
