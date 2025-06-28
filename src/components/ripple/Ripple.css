@@ -1,33 +1,27 @@
 .ripple-container {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-columns: repeat(12, 1em);
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
 
-  .ripple-container > span {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background-color: rgba(0, 0, 0, 0.2);
+  animation: ripple 600ms ease-out;
+  pointer-events: none;
+}
 
-  .ripple-container > span::after {
-    content: "";
-    pointer-events: none;
-    position: absolute;
-    background-color: red;
-    filter: blur(3px);
-    transition: width 0.5s ease-out, height 0.5s ease-out, opacity 1s;
-    width: 17em;
-    height: 17em;
+@keyframes ripple {
+  to {
+    transform: scale(2.5);
     opacity: 0;
-    border-radius: 999em;
   }
-
-  .ripple-container > span:active::after {
-    transition: 0s;
-    width: 0em;
-    height: 0em;
-    opacity: 0.3;
-  }
+}
