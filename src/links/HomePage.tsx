@@ -49,14 +49,6 @@ function HomePage() {
             <p>I also follow trends in web animation, creative coding, WebGL design, 3D interfaces, AI-assisted design, and accessibility-first web development.</p>
 
             <img src="hero-image.png" alt="UI/UX design, frontend code, digital art – Aedan's portfolio hero" />
-
-            <Switch id={'1233409'} />
-            <Button id={''} type={'filled'}>Get started</Button>
-            <Button id={''} type={'tonal'}>Get started</Button>
-            <Button id={''} type={'outlined'}>Get started</Button>
-            <Button id={''} type={'text'}>Get started</Button>
-            <Button id={''} type={'filled-alt'}>Get started</Button>
-            <Sinewave />
             <Dropdown
               items={[
                 { href: '#', label: 'item' },
