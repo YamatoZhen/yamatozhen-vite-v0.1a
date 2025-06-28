@@ -1,67 +1,59 @@
-import './Button.css';
-import '../../App.css';
-import Ripple from '../ripple/Ripple';
-import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { useMediaQuery } from '../useMediaQuery';
 
 interface ButtonProps {
-    id: string;
-    type: string;
+    id?: string;
+    iconName?: string;
+    label?: string;
+    ripple?: boolean;
+    onClick?: () => void;
+    className?: string;
     style?: React.CSSProperties;
-    children?: React.ReactNode;
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
-    activeState?: 'active' | 'inactive' | 'auto' | '';
 }
 
-const Button = ({ type, children, id, onClick, style, activeState }: ButtonProps) => {
+export default function Button({
+    id,
+    iconName,
+    label,
+    ripple = true,
+    onClick,
+    className,
+    style,
+}: ButtonProps) {
+    const isMobile = useMediaQuery('(max-width: 811px)');
     const [active, setActive] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    // Default to 'default' if activeState is null or undefined
-    const resolvedActiveState = activeState == null ? 'default' : activeState;
+    // Toggle active with a small delay to avoid rapid re-renders on mobile taps
+    const handleClick = () => {
+        setActive(true);
+        if (onClick) onClick();
 
-    const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        if (resolvedActiveState === 'default') {
-            setActive(true);
-            if (timerRef.current) clearTimeout(timerRef.current);
-            timerRef.current = setTimeout(() => setActive(false), 300);
-        } else if (resolvedActiveState === 'auto') {
-            setActive(prev => !prev);
-        }
-        onClick?.(event);
+        setTimeout(() => {
+            setActive(false);
+        }, 150); // 150ms active state duration
     };
-
-    useEffect(() => {
-        return () => {
-            if (timerRef.current) clearTimeout(timerRef.current);
-        };
-    }, []);
-
-    let classNames = `btn ${type}`;
-    if (resolvedActiveState === 'active' || (resolvedActiveState === 'auto' && active)) {
-        classNames += ' active';
-    } else if (resolvedActiveState === 'inactive') {
-        classNames += ' inactive';
-    } else if (active) {
-        classNames += ' active';
-    }
 
     return (
         <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            style={{ padding: 0, margin: 0, display: 'inline-block', ...style }}
+            whileHover={isMobile ? undefined : { scale: 1.05 }}
+            whileTap={isMobile ? undefined : { scale: 0.95 }}
+            style={{ touchAction: 'manipulation', display: 'inline-block', ...style }}
         >
             <button
                 id={id}
-                className={classNames}
-                onClick={handleButtonClick}
+                className={`${className ?? ''} btn ${active ? 'active' : ''} ${ripple && !isMobile ? 'ripple' : ''}`}
+                onClick={handleClick}
+                aria-pressed={active}
+                type="button"
             >
-                <span id='first-child'>{children}</span>
-                <Ripple />
+                {iconName && (
+                    <span className="material-symbols-rounded" aria-hidden="true">
+                        {iconName}
+                    </span>
+                )}
+                {label && <span className="label-text">{label}</span>}
             </button>
         </motion.div>
     );
-};
-
-export default Button;
+}
