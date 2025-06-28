@@ -17,13 +17,6 @@ function HomePage() {
     <ReviewForm />
     <section className='body-section'>
       <FTB.Section id="Overview">
-        <FTB id={'tbshm'} tabs={[
-          { iconName: 'info', label: 'Overview' },
-          { iconName: 'art_track', label: 'Specs' },
-          { iconName: 'design_services', label: 'Guidelines' },
-          { iconName: 'accessibility_new', label: 'Accessibility' }
-        ]} />
-
         <div className="wrap-16">
           <MIOCard
             title='Blog: Using motion physics'
