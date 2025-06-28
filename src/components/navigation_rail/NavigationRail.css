@@ -279,3 +279,37 @@
     width: 88px;
     z-index: 1;
 }
+
+.menu{
+    display: none;
+}
+@media (max-width: 812px) {
+    .width-corrector{
+        height: 74px;
+        width: 100%;
+        left: 50%;
+        position: relative;
+    }
+    .sidebar{
+        width: 100%;
+        height: 74px;
+    }
+    .sidebar-content{
+        display: none;
+    }
+    .menu{
+        color: var(--md-sys-color-secondary);
+        display:block;
+        transform: rotate(0);
+        transition: 
+            transform var(--transition-expressive-slow);
+    }
+    .menu.triggered{
+        transform: rotate(360deg);
+    }
+    .tabexpand{
+        display: none;
+    }
+
+    
+}

@@ -61,7 +61,7 @@ export default function ReviewForm() {
             <FAB
                 id={'setOpen-btn'}
                 iconName={'favorite'}
-                className={`review-fab ${isOpen === true && 'opened'}`}
+                className={`review-fab elevated ${isOpen === true && 'opened'}`}
                 onClick={() => setIsOpen(true)}
             />
         </motion.div>

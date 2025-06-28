@@ -127,6 +127,7 @@
     background-color: unset;
     color: var(--md-sys-color-primary);
     fill: var(--md-sys-color-primary);
+    padding: ;
 }
 
 .btn.text.active {

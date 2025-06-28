@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url(./colors.css);
 
 :root {
   --spin: cubic-bezier(0.4, 0.04, 0.36, 0.86);
@@ -6,6 +7,28 @@
   --transition-expressive: 500ms cubic-bezier(0.55, 0.57, 0, 1.58);
   --transition-expressive-slow: 500ms cubic-bezier(0.01, 1.25, 0.23, 1.01);
   --transition-expressive-color: 0.3s ease-out;
+
+  --md-sys-color-warning: rgb(186, 133, 26);
+  --md-sys-color-on-warning: rgb(255, 255, 255);
+  --md-sys-color-warning-container: rgb(255, 252, 209);
+  --md-sys-color-on-warning-container: rgb(130, 80, 0);
+
+  --md-sys-color-success: rgb(26, 186, 50);
+  --md-sys-color-on-success: rgb(255 255 255);
+  --md-sys-color-success-container: rgb(214, 255, 236);
+  --md-sys-color-on-success-container: rgb(0, 103, 10);
+}
+
+.darkmode {
+  --md-sys-color-warning: rgb(186, 133, 26);
+  --md-sys-color-on-warning: rgb(255, 255, 255);
+  --md-sys-color-warning-container: rgb(125, 83, 0);
+  --md-sys-color-on-warning-container: rgb(255, 230, 171);
+
+  --md-sys-color-success: rgb(26, 186, 50);
+  --md-sys-color-on-success: rgb(255 255 255);
+  --md-sys-color-success-container: rgb(0, 103, 77);
+  --md-sys-color-on-success-container: rgb(185, 255, 182);
 }
 
 #root {
@@ -13,7 +36,7 @@
   height: 0;
   margin: 0;
   text-align: center;
-  display:flex;
+  display: flex;
   font-family: "Funnel Sans", sans-serif !important;
   line-height: 1.5;
   font-size: 14px;
@@ -34,7 +57,7 @@
 .elevated {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1),
     0 2px 4px rgba(0, 0, 0, 0.1),
-    0 4px 8px rgba(0, 0, 0, 0.1);
+    0 4px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {}
@@ -56,7 +79,7 @@ section+.carousel-clip {
   left: calc(240px + 32px);
 }
 
-.home-section {
+.body-section {
   background-color: var(--md-sys-color-surface-container-lowest);
   padding: 8px 16px;
 }
@@ -153,12 +176,34 @@ textarea {
 
   transition: all var(--transition-expressive-color);
 }
-.wrap-4{
-  margin:0 4%;
+
+.wrap-4 {
+  margin: 0 4%;
 }
-.wrap-8{
-  margin:0 8%;
+
+.wrap-8 {
+  margin: 0 8%;
 }
-.wrap-16{
-  margin:0 16%;
+
+.wrap-16 {
+  margin: 0 16%;
+}
+
+@media (max-width: 812px) {
+  section.content-section {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: max-content;
+    height: 100%;
+    width: 100%;
+    top: 74px;
+    padding: 0px;
+  }
+  .body-section{
+    padding: 16px 16px 8px 16px;
+  }
+  .wrap-4,  .wrap-8, .wrap-16{
+    margin: 0;
+  }
 }

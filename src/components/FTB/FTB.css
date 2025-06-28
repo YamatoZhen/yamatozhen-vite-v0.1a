@@ -1,50 +1,65 @@
-.FTB-container{
-    position:relative;
+.FTB-container {
+    position: relative;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     font-weight: 500;
-    
     border-radius: 56px;
-    overflow: hidden;
+    overflow: auto;
 
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+
+    /* IE 10+ */
+    &::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Edge */
+    }
+
+    top: 0;
     background-color: var(--md-sys-color-surface-container-low);
-    width: calc(100% - 32px - 84px - 24px);
-    left: calc(32px + 84px);
+    width: calc(100% - 32px - 82px);
+    left: calc(32px + 54px);
     height: 72px;
     margin: 0 0px;
     box-shadow: 0 0 0 var(--md-sys-color-shadow);
-    will-change: transform, box-shadow;
-    transition:
-        background-color var(--transition-expressive-color),
-        height var(--transition-expressive),
-        width var(--transition-expressive),
-        left var(--transition-expressive),
-        right var(--transition-expressive),
-        top var(--transition-expressive),
-        box-shadow var(--transition-expressive-color);
+    will-change: transform,
+    box-shadow;
+    transition: background-color var(--transition-expressive-color),
+    height var(--transition-expressive),
+    width var(--transition-expressive),
+    left var(--transition-expressive),
+    right var(--transition-expressive),
+    top var(--transition-expressive),
+    box-shadow var(--transition-expressive-color);
 }
-.tab-container{
+
+.tab-container {
     font-size: 16px;
     border-radius: 56px;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-width: 164px;
     height: 100%;
 
     position: relative;
-    >.icon-label-container{
+
+    >.icon-label-container {
         color: var(--md-sys-color-secondary);
         display: flex;
         flex-direction: row-reverse;
         z-index: 1002;
-        >.label-name{
+
+        >.label-name {
             padding-top: 2px;
         }
     }
-    &::before{
+
+    &::before {
         content: '';
         width: 60%;
         height: 100%;
@@ -53,40 +68,46 @@
         z-index: 1001;
         position: absolute;
         transition: background-color var(--transition-expressive-color),
-                    width var(--transition-expressive-color),
-                    height  var(--transition-expressive-color),
-                    left var(--transition-expressive-color),
-                    transform var(--transition-expressive-color);
+            width var(--transition-expressive-slow),
+            height var(--transition-expressive-color),
+            left var(--transition-expressive-slow),
+            transform var(--transition-expressive-slow);
     }
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         background-color: var(--md-sys-color-surface-container);
-        .material-symbols-rounded{
+
+        .material-symbols-rounded {
             font-variation-settings: 'wght' 600;
         }
     }
+
     transition: background-color var(--transition-expressive-color);
 }
 
-.tab-container.current-tab{
+.tab-container.current-tab {
     font-weight: 600;
-    >.icon-label-container{
+
+    >.icon-label-container {
         color: var(--md-sys-color-on-surface);
-        .material-symbols-rounded{
+
+        .material-symbols-rounded {
             font-variation-settings: 'FILL' 1;
         }
     }
-    &::before{
+
+    &::before {
         width: 100%;
         background-color: var(--md-sys-color-secondary-container);
     }
 }
 
-.FTB-container.nav-mode{
+.FTB-container.nav-mode {
     width: calc(74% - 32px - 84px);
     left: calc(13% + 32px + 84px - 24px);
     top: 10px;
-    position:fixed;
+    position: fixed;
     height: 64px;
 }
 
@@ -95,5 +116,23 @@
     position: relative;
     left: -9%;
     height: 100px;
-    width: 111%;
+    width: 112%;
+}
+
+@media (max-width: 812px) {
+    .FTB-container {
+        width: calc(100% - 32px);
+        left: 16px;
+    }
+
+    .FTB-container.nav-mode {
+        width: calc(100% - 48px);
+        left: 24px;
+        top: 84px;
+    }
+
+    .holder {
+        left: -16px;
+        width: calc(100% + 32px);
+    }
 }

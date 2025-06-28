@@ -1,0 +1,73 @@
+.accordion-wrapper{
+    width: auto;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 8px 0;
+    position: relative;
+}
+
+.accordion-tab{
+    color: var(--md-sys-color-on-surface);
+    font-size: 14px;
+    text-align: left;
+
+    background-color: var(--md-sys-color-surface-container-low);
+    border-radius: 4px;
+    padding: 4px;
+
+    overflow: hidden;
+    transition: background-color var(--transition-expressive-color);
+
+}
+.accordion-tab:hover, .accordion-tab.exp:hover{
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-surface);
+    cursor: pointer;
+}
+.accordion-tab.exp{
+    background-color: var(--md-sys-color-surface-container-low);
+}
+
+.title{
+    margin: -4px;
+    padding: 14px 20px;
+    color: var(--md-sys-color-secondary);
+    border-bottom: 1px solid transparent;
+    transition: 
+        background-color var(--transition-expressive-color), 
+        color var(--transition-expressive-color), 
+        border var(--transition-expressive-color);
+}
+.text {
+    padding: 24px;
+}
+
+.text-wrapper{
+    overflow: hidden;
+    max-height: 0px;
+    transition: margin var(--transition-expressive-color), max-height var(--transition-expressive);
+    border-radius: 22px;
+}
+
+.accordion-tab.exp .text-wrapper{
+  max-height: 500px;
+}
+
+.tab:first-of-type{
+    border-radius: 26px 26px 4px 4px;
+}
+.tab:last-of-type{
+    border-radius: 4px 4px 26px 26px;
+}
+.tab:first-of-type:last-of-type{
+    border-radius: 26px;
+}
+
+
+.accordion-tab.exp .title{
+    border-bottom: 1px solid var(--md-sys-color-secondary-container);
+}
+

@@ -11,7 +11,7 @@ export default function FAB({id,iconName,className, onClick}:{id: string; iconNa
             whileTap={{ scale: 0.95 }}
             style={{ padding: "0", margin: "0"}}
         >
-            <button onClick={onClick} className={`FAB elevated ${className}`}>
+            <button onClick={onClick} className={`FAB ${className}`}>
                <Icon id={id} iconName={iconName} label=''/>
                 <Ripple/>
             </button>

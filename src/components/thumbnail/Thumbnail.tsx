@@ -1,5 +1,6 @@
 import React from 'react';
 import './Thumbnail.css';
+import { useMediaQuery } from '../useMediaQuery';
 
 interface GridContainerProps {
   children?: React.ReactNode;
@@ -9,28 +10,26 @@ interface GridContainerProps {
 }
 
 function GridContainer({ className, children, setColumns, setRows }: GridContainerProps) {
-  const minWidth = 600 / setColumns;
+  const isMobile = useMediaQuery('(max-width: 600px)');
+
+  const columns = isMobile ? 1 : setColumns;
 
   return (
     <div
       className={`GridContainer ${className}`}
       style={{
-        margin: "8px 0 8px 0",
+        margin: "8px 0",
         display: "grid",
         gap: "8px",
-        gridTemplateColumns: `repeat(${setColumns}, 1fr)`,
+        gridTemplateColumns: `repeat(${columns}, 1fr)`,
         gridTemplateRows: `repeat(${setRows}, 1fr)`,
       }}
     >
-      {React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          return React.cloneElement(child as React.ReactElement<any>, { minWidth });
-        }
-        return child;
-      })}
+      {children}
     </div>
   );
 }
+
 export { GridContainer };
 
 interface ThumbnailProps {
