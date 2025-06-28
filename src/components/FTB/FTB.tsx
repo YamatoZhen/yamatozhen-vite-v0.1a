@@ -27,8 +27,6 @@ function FTB({
   //Floating nav logic (only triggers when top is passed)
   useEffect(() => {
     if (typeof isMobile !== 'boolean') return;//return if isMobile is undefined
-
-    const dynamicMargin = isMobile ? "-84px 0 0 0" : "-10px 0px 0px 0px";
     
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -37,7 +35,7 @@ function FTB({
       },
       {
         threshold: 0,
-        rootMargin: dynamicMargin
+        rootMargin: "-10px 0px 0px 0px"
       }
     );
   
@@ -97,7 +95,7 @@ function FTB({
 
   return (
     <>
-      <div ref={sentinelRef} style={{ height: isMobile ? '84px' : '10px' }} />
+      <div ref={sentinelRef} style={{ height: "10px" }} />
       <div className="holder">
         <div
           className={`FTB-container ${isFloating ? 'nav-mode elevated' : ''}`}

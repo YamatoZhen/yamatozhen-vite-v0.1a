@@ -85,3 +85,7 @@
     margin-top: calc(142px - 24px );
     z-index: 99;
 }
+
+.bottom-margin{
+    bottom: 78px
+}

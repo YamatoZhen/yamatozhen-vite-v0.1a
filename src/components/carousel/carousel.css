@@ -30,3 +30,10 @@
     height: 400px;
     width: 100%;
 }
+
+@media (max-width: 812px) {
+    .carousel {
+        left: -10%;
+        width: 160%; /* Or a specific width */
+    }
+}

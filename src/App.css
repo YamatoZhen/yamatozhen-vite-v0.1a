@@ -197,11 +197,11 @@ textarea {
     height: max-content;
     height: 100%;
     width: 100%;
-    top: 74px;
     padding: 0px;
   }
   .body-section{
     padding: 16px 16px 8px 16px;
+    border-radius: 0;
   }
   .wrap-4,  .wrap-8, .wrap-16{
     margin: 0;

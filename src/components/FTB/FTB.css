@@ -128,7 +128,7 @@
     .FTB-container.nav-mode {
         width: calc(100% - 48px);
         left: 24px;
-        top: 84px;
+        top: 10px;
     }
 
     .holder {

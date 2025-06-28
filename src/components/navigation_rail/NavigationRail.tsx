@@ -35,17 +35,10 @@ function RailTab({ label, id, iconName, onClick, className }: RailTabProps) {
 }
 export { RailTab };
 
-interface NavigationRailProps {
-    children?: ReactNode;
-}
-
-export default function NavgationRail({ children }: NavigationRailProps) {
-
+export default function NavgationRail({ children }:{children?: React.ReactNode;}) {
     const [open, setOpen] = useState<number | null>(null);
     const [selected, setSelected] = useState(0);
     const navigate = useNavigate();
-    const [isExpanded, setIsExpanded] = useState(false);
-
     const darkmodeState = () => {
         const updateDarkMode = () => {
             document.body.classList.toggle('darkmode');
@@ -66,22 +59,69 @@ export default function NavgationRail({ children }: NavigationRailProps) {
     const isMobile = useMediaQuery('(max-width: 811px)');
     return (
         <>
-            <div className="width-corrector"></div>
-            <div className={`sidebar`}>
-                {isMobile ? (
-                    <Button
-                        onClick={() => setIsExpanded(prev => !prev)}
-                        type={`menu icon text ${isExpanded === true && 'triggered'}`}
-                        id={''}
-                    >
-                        <Icon
-                            label=''
-                            iconName={isExpanded === true ? 'menu_open' : 'menu'}
-                        />
-                    </Button>
-
-                ) : (<>
-                    <div className={`sidebar-content ${isExpanded === true && 'expanded'}`}>
+            {isMobile ? (<>
+                <div className="bottombar">
+                    <div className="bottombar-content elevated">
+                    {Array.isArray(children) ? children.map((child, index) => {
+                                const childProps = (child as any).props;
+                                const shouldRenderTabMenu = childProps && childProps.tabMenu === true;
+                                // Collect tabexpand for outside rendering
+                                if (shouldRenderTabMenu) {
+                                    tabExpandElements.push(
+                                        <div
+                                            key={`alt-tabexpand-${index}`}
+                                            className={`alt-tabexpand ${open === index ? 'open' : ''}`}
+                                            id={`alt-tabexpand-${index}`}
+                                        >
+                                            {Array.isArray(childProps.tabItems) && childProps.tabItems.length > 0 && (
+                                                <ul className="alt-tab-items-list">
+                                                    {childProps.tabItems.map(
+                                                        (
+                                                            item: { label: string; onClick?: () => void; className?: string },
+                                                            idx: number
+                                                        ) => (
+                                                            <li
+                                                                className={`alt-tab-item${item.className ? ` ${item.className}` : ''}`}
+                                                                key={idx}
+                                                                onClick={item.onClick}
+                                                            >
+                                                                {item.label}
+                                                            </li>
+                                                        )
+                                                    )}
+                                                </ul>
+                                            )}
+                                        </div>
+                                    );
+                                }
+                                return (
+                                    <React.Fragment key={index}>
+                                        <ul className='nav-list'>
+                                            <input
+                                                type="radio"
+                                                className='bg-radio'
+                                                name="sb-radio"
+                                                id={`radio-${index}`}
+                                                checked={selected === index}
+                                                onChange={() => { setSelected(index); tabIndexSelector(index); }}
+                                                style={{ display: "none" }}
+                                            />
+                                            <li
+                                                className={`sb-item${selected === index ? " selected" : ""}`}
+                                                onClick={() => { tabIndexSelector(index); }}
+                                            >
+                                                {child}
+                                            </li>
+                                        </ul>
+                                    </React.Fragment>
+                                );
+                            }) : null}
+                    </div>
+                </div>
+            </>) : (<>
+                <div className="width-corrector"></div>
+                <div className={`sidebar`}>
+                    <div className={`sidebar-content`}>
                         <ul className="nav-menu">
                             <FAB id='' className='elevation-0' iconName='search' onClick={() => navigate('/search')} />
                             {Array.isArray(children) ? children.map((child, index) => {
@@ -143,9 +183,10 @@ export default function NavgationRail({ children }: NavigationRailProps) {
                             <Icon label='' iconName={`${document.body.classList.contains('darkmode') ? "dark_mode" : "light_mode"}`} id={''} />
                         </Button>
                     </div>
-                </>)}
-            </div>
-            {tabExpandElements}
+
+                </div>
+                {tabExpandElements}
+            </>)}
         </>
     );
 }

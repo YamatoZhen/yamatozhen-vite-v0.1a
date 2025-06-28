@@ -4,10 +4,12 @@ import '../button/Button'
 import Stepper, { Step } from '../react-bits/Stepper/Stepper';
 import GradientText from '../react-bits/GradientText/GradientText';
 import FAB from '../FAB/FAB';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, isMotionComponent, motion } from 'framer-motion';
 import { Icon } from '../navigation_rail/NavigationRail';
+import { useMediaQuery } from '../useMediaQuery';
 
 export default function ReviewForm() {
+    const isMobile = useMediaQuery('(max-width: 811px)');
     const [isOpen, setIsOpen] = useState(false);
     const [name, setName] = useState('');
     const [rating, setRating] = useState('');
@@ -61,7 +63,7 @@ export default function ReviewForm() {
             <FAB
                 id={'setOpen-btn'}
                 iconName={'favorite'}
-                className={`review-fab elevated ${isOpen === true && 'opened'}`}
+                className={`review-fab elevated ${isOpen === true && 'opened'} ${isMobile && 'bottom-margin'}`}
                 onClick={() => setIsOpen(true)}
             />
         </motion.div>
