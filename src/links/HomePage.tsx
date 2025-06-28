@@ -1,10 +1,5 @@
-import Button from '../components/button/Button'
-import Dropdown from '../components/dropdown/dropdown';
 import MIOCard from '../components/MIOCard/MIOCard';
-import PFP from '../components/pfp/PFP';
-import Sinewave from '../components/sinewave/Sinewave'
-import Thumbnail, { GridContainer } from '../components/thumbnail/Thumbnail';
-import Switch from '../components/switch/Switch';
+import { GridContainer } from '../components/thumbnail/Thumbnail';
 import FTB from '../components/FTB/FTB';
 import ReviewList from '../components/Reviews/ReviewList';
 import ReviewForm from '../components/Reviews/ReviewForm';
