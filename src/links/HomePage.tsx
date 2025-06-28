@@ -28,31 +28,6 @@ function HomePage() {
           <p>I also follow trends in web animation, creative coding, WebGL design, 3D interfaces, AI-assisted design, and accessibility-first web development.</p>
 
           <img src="hero-image.png" alt="UI/UX design, frontend code, digital art – Aedan's portfolio hero" />
-
-          <Switch id={'1233409'} />
-          <Button id={''} type={'filled'}>Get started</Button>
-          <Button id={''} type={'tonal'}>Get started</Button>
-          <Button id={''} type={'outlined'}>Get started</Button>
-          <Button id={''} type={'text'}>Get started</Button>
-          <Button id={''} type={'filled-alt'}>Get started</Button>
-          <Sinewave />
-          <Dropdown
-            items={[
-              { href: '#', label: 'item' },
-              { href: '#', label: 'item' },
-              { href: '#', label: 'item' },
-              { href: '#', label: 'item' }
-            ]} label={'Drop?'} id={''} type={'filled'} />
-          <PFP className='pfp' size='128px' src="https://www.artstation.com/yamato_zhen" />
-          <GridContainer setColumns={1} setRows={2}>
-            <Thumbnail src="src/assets/aa88421a029b7b834038eea81d3a060a.jpg" alt="1" />
-            <Thumbnail src="" alt="" />
-          </GridContainer>
-          <GridContainer setColumns={3} setRows={1}>
-            <Thumbnail src="" alt="" />
-            <Thumbnail src="" alt="" />
-            <Thumbnail src="" alt="" />
-          </GridContainer>
         </div>
         <div className="wrap-4">
           <GridContainer setColumns={2} setRows={1}>
