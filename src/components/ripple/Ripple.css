@@ -5,23 +5,32 @@
   right: 0;
   bottom: 0;
   border-radius: inherit;
+
+  z-index: inherit;
   overflow: hidden;
-  pointer-events: none;
-  z-index: 0;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* so it doesn’t block clicks */
 }
 
 .ripple {
+  opacity: 0.5;
   position: absolute;
   border-radius: 50%;
+  background-color: rgb(255, 0, 0);
+
+  filter: blur(4px);
+  -webkit-filter: blur(4px);
   transform: scale(0);
-  background-color: rgba(0, 0, 0, 0.2);
-  animation: ripple 600ms ease-out;
+  animation: ripple-animation 600ms linear;
   pointer-events: none;
+  will-change: transform, opacity;
 }
 
-@keyframes ripple {
+@keyframes ripple-animation {
   to {
-    transform: scale(2.5);
+    transform: scale(4);
     opacity: 0;
   }
 }

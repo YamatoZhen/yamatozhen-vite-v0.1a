@@ -83,7 +83,7 @@
     fill: var(--md-sys-color-primary-container-dim);
 }
 
-.btn.tonal .ripple-container span::after {
+.btn.tonal .ripple-container .ripple {
     background-color: var(--md-sys-color-primary);
 }
 
@@ -93,7 +93,7 @@
     fill: var(--md-sys-color-on-primary);
 }
 
-.btn.filled-alt .ripple-container span::after {
+.btn.filled-alt .ripple-container .ripple {
     background-color: var(--md-sys-color-on-primary-container);
 }
 
@@ -103,7 +103,7 @@
     fill: var(--md-sys-color-on-primary);
 }
 
-.btn.filled .ripple-container span::after {
+.btn.filled .ripple-container .ripple {
     background-color: var(--md-sys-color-primary-container);
 }
 
@@ -123,7 +123,7 @@
     padding: 7px 8px 8px 5px;
 }
 
-.btn.outlined .ripple-container span::after {
+.btn.outlined .ripple-container .ripple {
     background-color: var(--md-sys-color-outline-variant);
 }
 
@@ -137,7 +137,7 @@
     border-radius: 48px !important;
 }
 
-.btn.text .ripple-container span::after {
+.btn.text .ripple-container .ripple {
     background-color: var(--md-sys-color-primary);
 }
 

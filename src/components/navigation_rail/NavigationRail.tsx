@@ -60,6 +60,7 @@ export default function NavgationRail({ children }:{children?: React.ReactNode;}
     return (
         <>
             {isMobile ? (<>
+            <div className="gradient"></div>
                 <div className="bottombar">
                     <div className="bottombar-content elevated">
                     {Array.isArray(children) ? children.map((child, index) => {

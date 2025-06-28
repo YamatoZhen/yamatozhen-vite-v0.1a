@@ -18,10 +18,13 @@ const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 const Button = ({ type, children, id, onClick, style, activeState }: ButtonProps) => {
     const [active, setActive] = useState(false);
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const rippleRef = useRef<{ triggerRipple: (e: React.MouseEvent<HTMLButtonElement>) => void }>(null);
 
     const resolvedActiveState = activeState == null ? 'default' : activeState;
 
     const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        rippleRef.current?.triggerRipple(event);
+
         if (resolvedActiveState === 'default') {
             setActive(true);
             if (timerRef.current) clearTimeout(timerRef.current);
@@ -58,7 +61,7 @@ const Button = ({ type, children, id, onClick, style, activeState }: ButtonProps
                 margin: 0,
                 display: 'inline-block',
                 touchAction: 'manipulation',
-                WebkitTapHighlightColor: 'transparent', // stops flash on iOS
+                WebkitTapHighlightColor: 'transparent',
                 ...style,
             }}
         >
@@ -68,7 +71,7 @@ const Button = ({ type, children, id, onClick, style, activeState }: ButtonProps
                 onClick={handleButtonClick}
             >
                 <span id="first-child">{children}</span>
-                <Ripple />
+                <Ripple ref={rippleRef} />
             </button>
         </motion.div>
     );
