@@ -24,51 +24,59 @@ function FTB({
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const isMobile = useMediaQuery('(max-width: 811px)');
 
-  //Floating nav logic (only triggers when top is passed)
+  // Floating nav logic
   useEffect(() => {
-    if (typeof isMobile !== 'boolean') return;//return if isMobile is undefined
-    
+    if (typeof isMobile !== 'boolean') return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         const shouldFloat = !entry.isIntersecting && entry.boundingClientRect.top < 0;
-        setIsFloating(prev => (prev !== shouldFloat ? shouldFloat : prev));
+        setIsFloating(prev => (prev === shouldFloat ? prev : shouldFloat));
       },
       {
         threshold: 0,
-        rootMargin: "-10px 0px 0px 0px"
+        rootMargin: "-10px 0px 0px 0px",
       }
     );
-  
+
     const sentinel = sentinelRef.current;
     if (sentinel) observer.observe(sentinel);
+
     return () => {
       if (sentinel) observer.unobserve(sentinel);
     };
-  }, []);  
+  }, [isMobile]);
 
-  //Scroll syncing logic
+  // Scroll syncing logic with requestAnimationFrame throttle
   useEffect(() => {
     sectionRefs.current = tabs.map(tab =>
       document.getElementById(tab.label.toLowerCase())
     );
 
+    let ticking = false;
+
     const sectionObserver = new IntersectionObserver(
       entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const index = sectionRefs.current.findIndex(
-              ref => ref === entry.target
-            );
-            if (index !== -1 && selectedTab !== index) {
-              setSelectedTab(index);
-              onTabChange?.(index);
+        if (ticking) return;
+        ticking = true;
+
+        requestAnimationFrame(() => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const index = sectionRefs.current.findIndex(ref => ref === entry.target);
+              if (index !== -1) {
+                setSelectedTab(prevSelected => {
+                  if (prevSelected === index) return prevSelected;
+                  onTabChange?.(index);
+                  return index;
+                });
+              }
             }
-          }
+          });
+          ticking = false;
         });
       },
-      {
-        threshold: 0.6, // Section must be at least 60% visible
-      }
+      { threshold: 0.6 }
     );
 
     sectionRefs.current.forEach(ref => {
@@ -80,9 +88,9 @@ function FTB({
         if (ref) sectionObserver.unobserve(ref);
       });
     };
-  }, [tabs, selectedTab, onTabChange]);
+  }, [tabs, onTabChange]);
 
-  //Manual tab click scroll
+  // Manual tab click scroll
   const handleTabClick = useCallback(
     (index: number) => {
       setSelectedTab(index);
@@ -128,7 +136,6 @@ function FTB({
 export default FTB;
 
 // Custom Section Component
-//The component scrolls into view by comparing tab.label and id between the two components. They need t obe the same string!!!
 FTB.Section = function Section({
   id,
   children,
