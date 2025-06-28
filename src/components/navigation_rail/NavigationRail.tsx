@@ -1,5 +1,5 @@
 import './NavigationRail.css';
-import { useState, ReactNode } from "react";
+import { useState } from "react";
 import Button from '../button/Button';
 import FAB from '../FAB/FAB';
 import { useNavigate } from 'react-router-dom';

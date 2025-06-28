@@ -4,7 +4,7 @@ import '../button/Button'
 import Stepper, { Step } from '../react-bits/Stepper/Stepper';
 import GradientText from '../react-bits/GradientText/GradientText';
 import FAB from '../FAB/FAB';
-import { AnimatePresence, isMotionComponent, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Icon } from '../navigation_rail/NavigationRail';
 import { useMediaQuery } from '../useMediaQuery';
 
