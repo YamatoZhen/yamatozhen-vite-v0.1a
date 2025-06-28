@@ -53,3 +53,13 @@ html::-webkit-scrollbar {
   white-space: nowrap;
   direction: ltr;
 }
+@media (max-width: 812px) {
+  body{
+    background-color: var(--md-sys-color-surface-container-lowest, #ffffff)
+  }
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: var(--md-sys-color-surface-container-lowest, #121212); /* fallback */
+    }
+  }
+}
