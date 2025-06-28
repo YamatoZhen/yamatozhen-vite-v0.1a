@@ -2,7 +2,7 @@ import './Button.css';
 import '../../App.css';
 import Ripple from '../ripple/Ripple';
 import { useState, useRef, useEffect } from 'react';
-import { motion, useIsPresent } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface ButtonProps {
     id: string;
