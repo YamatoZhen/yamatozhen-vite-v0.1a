@@ -37,7 +37,7 @@
         'wght' 500;
     transition: all 0.2s ease, font-variation-settings 0.2s ease;
 }
-.FAB > .ripple-container > span::after{
+.FAB > .ripple-container > .ripple{
     background-color: var(--md-sys-color-primary);
 }
 .FAB.sticky{
