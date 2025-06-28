@@ -5,7 +5,7 @@ export interface RippleHandle {
   triggerRipple: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Ripple = forwardRef<RippleHandle>((props, ref) => {
+const Ripple = forwardRef<RippleHandle>((_, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => ({
