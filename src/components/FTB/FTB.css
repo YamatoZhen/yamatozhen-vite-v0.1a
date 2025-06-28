@@ -6,22 +6,10 @@
     justify-content: space-around;
     font-weight: 500;
     border-radius: 56px;
-    overflow: auto;
-
-    scrollbar-width: none;
-    /* Firefox */
-    -ms-overflow-style: none;
-
-    /* IE 10+ */
-    &::-webkit-scrollbar {
-        display: none;
-        /* Chrome, Safari, Edge */
-    }
-
     top: 0;
     background-color: var(--md-sys-color-surface-container-low);
-    width: calc(100% - 32px - 82px);
-    left: calc(32px + 54px);
+    width: calc(96% - 94px);
+    left: calc(2% + 32px + 54px);
     height: 72px;
     margin: 0 0px;
     box-shadow: 0 0 0 var(--md-sys-color-shadow);
@@ -34,6 +22,18 @@
     right var(--transition-expressive),
     top var(--transition-expressive),
     box-shadow var(--transition-expressive-color);
+
+    overflow: auto;
+
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+
+    /* IE 10+ */
+    &::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Edge */
+    }
 }
 
 .tab-container {
