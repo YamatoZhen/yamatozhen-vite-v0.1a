@@ -1,11 +1,8 @@
-import Button from '../components/button/Button'
 import Carousel from '../components/carousel/Carousel';
 import Dropdown from '../components/dropdown/dropdown';
 import MIOCard from '../components/MIOCard/MIOCard';
 import PFP from '../components/pfp/PFP';
-import Sinewave from '../components/sinewave/Sinewave'
 import Thumbnail, { GridContainer } from '../components/thumbnail/Thumbnail';
-import Switch from '../components/switch/Switch';
 import FTB from '../components/FTB/FTB';
 import AnimateChildren from '../components/FramerMotion/PageWrapper';
 import ReviewForm from '../components/Reviews/ReviewForm';
