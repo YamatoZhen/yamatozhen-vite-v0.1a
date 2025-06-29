@@ -108,7 +108,7 @@
     left: calc(13% + 32px + 84px - 24px);
     top: 7px;
     position: fixed;
-    height: 64px;
+    height: 60px;
 }
 
 .holder {

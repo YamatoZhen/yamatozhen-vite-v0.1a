@@ -322,7 +322,7 @@
 
     .sb-item {
         height: 100%;
-        width: 86px;
+        width: 88px;
         background-color: transparent;
         border-radius: 68px;
         transition: background-color var(--transition-expressive-color);
@@ -361,8 +361,7 @@
     width: 94%;
     left: 3%;
 
-    border: 1px solid red;
-    height: 62px;
+    height: 66px;
 }
 
 .bottombar-content {
@@ -401,6 +400,6 @@
 }    
 
 .navFAB.sticky{
-    bottom: 3px !important;
+    bottom: 5px !important;
     right: 0px !important;
 }
