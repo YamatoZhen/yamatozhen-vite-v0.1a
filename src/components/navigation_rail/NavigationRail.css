@@ -369,7 +369,7 @@
     position: relative;
     display: flex;
     height: 100%;
-    width: calc(100%);
+    width: calc(100% - 84px);
     padding: 8px 6px;
     flex-direction: row;
     border-radius: 56px;
@@ -398,3 +398,7 @@
     background: -moz-linear-gradient(0deg, var(--md-sys-color-surface-container-low) 50%, transparent 100%);
     background: linear-gradient(0deg, var(--md-sys-color-surface-container-low) 50%, transparent 100%);
 }    
+
+.navFAB.sticky{
+    bottom: 8px !important;
+}

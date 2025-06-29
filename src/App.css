@@ -85,6 +85,8 @@ section+.carousel-clip {
 }
 
 .preloader {
+  top: 0%;
+  height: 120%;
   opacity: 1;
   background: var(--md-sys-color-surface-container-lowest);
   transition: opacity 0.2s;
@@ -97,7 +99,7 @@ section+.carousel-clip {
 }
 
 .preloader .bg-container {
-  top: 43%;
+  top: 34%;
 }
 
 .preloader.fade-out {
