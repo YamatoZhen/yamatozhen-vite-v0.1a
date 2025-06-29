@@ -322,7 +322,7 @@
 
     .sb-item {
         height: 100%;
-        width: 106px;
+        width: 86px;
         background-color: transparent;
         border-radius: 68px;
         transition: background-color var(--transition-expressive-color);
@@ -361,7 +361,8 @@
     width: 94%;
     left: 3%;
 
-    height: 72px;
+    border: 1px solid red;
+    height: 62px;
 }
 
 .bottombar-content {
@@ -369,7 +370,7 @@
     position: relative;
     display: flex;
     height: 100%;
-    width: calc(100% - 84px);
+    width: calc(100% - 74px);
     padding: 8px 6px;
     flex-direction: row;
     border-radius: 56px;
@@ -394,11 +395,16 @@
     height: 30%;
 
     background: var(--md-sys-color-surface-container-low);
-    background: -webkit-linear-gradient(0deg, var(--md-sys-color-surface-container-low) 50%, transparent 100%);
-    background: -moz-linear-gradient(0deg, var(--md-sys-color-surface-container-low) 50%, transparent 100%);
-    background: linear-gradient(0deg, var(--md-sys-color-surface-container-low) 50%, transparent 100%);
+    background: -webkit-linear-gradient(0deg, var(--md-sys-color-surface-container-lowest) 50%, transparent 100%);
+    background: -moz-linear-gradient(0deg, var(--md-sys-color-surface-container-lowest) 50%, transparent 100%);
+    background: linear-gradient(0deg, var(--md-sys-color-surface-container-lowest) 50%, transparent 100%);
 }    
 
 .navFAB.sticky{
-    bottom: 8px !important;
+    bottom: 3px !important;
+    right: 0px !important;
+}
+
+.mode-switch-mobile{
+
 }

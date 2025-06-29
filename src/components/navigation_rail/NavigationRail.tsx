@@ -5,6 +5,7 @@ import FAB from '../FAB/FAB';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import { useMediaQuery } from '../useMediaQuery';
+import ReviewForm from '../Reviews/ReviewForm';
 
 function Icon({ iconName, label, id, onClick, className }: { className?: string; id?: string; iconName?: string; label?: string; onClick?: () => void; }) {
     return (
@@ -62,7 +63,9 @@ export default function NavgationRail({ children }: { children?: React.ReactNode
             {isMobile ? (<>
                 <div className="gradient"></div>
                 <FAB id={"test"} iconName={"add"} className={"sticky elevated navFAB"}>
-                    <div>hello</div>
+                    <Button id={'mode-switch-mobile'} type={'filled label-icon'} onClick={darkmodeState}>
+                        <Icon label={`${document.body.classList.contains('darkmode') ? "Dark Mode" : "Light Mode"}`} iconName={`${document.body.classList.contains('darkmode') ? "dark_mode" : "light_mode"}`} id={''} />
+                    </Button>
                 </FAB>
                 <div className="bottombar">
                     <div className="bottombar-content elevated">

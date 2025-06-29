@@ -125,12 +125,14 @@ export default function FAB({
             left: isMobile && transformOrigin.startsWith('bottom') ? '4%' : left,
             width: popoverWidth,
             height: popoverHeight,
+            display: 'flex',
+            flexDirection: 'column-reverse',
+            alignItems: 'flex-end',
             transformOrigin,
+            padding: 0,
             zIndex: 10000,
-            backgroundColor: 'var(--md-sys-color-surface-container-low)',
             boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
             borderRadius: '26px',
-            padding: '1rem',
             ...(isMobile ? { bottom: 92 } : {}),
         });
     }, [isOpen]);

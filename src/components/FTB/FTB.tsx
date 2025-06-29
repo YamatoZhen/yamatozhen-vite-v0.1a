@@ -36,7 +36,7 @@ function FTB({
       },
       {
         threshold: 0,
-        rootMargin: "-10px 0px 0px 0px"
+        rootMargin: "-1px 0px 0px 0px"
       }
     );
   
@@ -96,10 +96,11 @@ function FTB({
 
   return (
     <>
-      <div ref={sentinelRef} style={{ height: "10px" }} />
+      <div className={`gradient-ftb ${isFloating && 'nav-mode'}`}></div>
+      <div ref={sentinelRef} style={{ height: "1px" }} />
       <div className="holder">
         <div
-          className={`FTB-container ${isFloating ? 'nav-mode elevated' : ''}`}
+          className={`FTB-container ${isFloating && 'nav-mode elevated'}`}
           role="tablist"
         >
           {tabs.map((tab, index) => (
@@ -108,7 +109,7 @@ function FTB({
               role="tab"
               aria-selected={selectedTab === index}
               tabIndex={0}
-              className={`tab-container ${selectedTab === index ? 'current-tab' : ''}`}
+              className={`tab-container ${selectedTab === index && 'current-tab'}`}
               onClick={() => handleTabClick(index)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
