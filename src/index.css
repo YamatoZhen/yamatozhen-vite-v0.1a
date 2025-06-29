@@ -56,7 +56,7 @@ html::-webkit-scrollbar {
 }
 @media (max-width: 812px) {
   body{
-    background-color: var(--md-sys-color-surface-container-lowest, #ffffff)
+    background-color: var(--md-sys-color-surface-container-lowest, #ffffff);
   }
   @media (prefers-color-scheme: dark) {
     body {
