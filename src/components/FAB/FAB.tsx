@@ -150,7 +150,6 @@ export default function FAB({
                     transform: 'translateZ(0)',
                     backfaceVisibility: 'hidden',
                     zIndex: 9999,
-                    position: 'fixed',
                     ...(isOpen && children ? {
                         borderRadius: 28,
                         backgroundColor: 'var(--md-sys-color-primary)',
